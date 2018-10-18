@@ -1,0 +1,13 @@
+Package: beR
+Title: Behavioural Ecology Tools In R
+Version: 0.0.0.9000
+Authors@R: c(person("Mihai", "Valcu", ,"valcu@orn.mpg.de", c("aut", "cre")) )
+Description: Behavioural ecology tools In R
+Depends: 
+    R (>= 3.4.3),
+    data.table,
+    magrittr
+License: GPL>2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
