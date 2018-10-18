@@ -9,7 +9,6 @@
 
 
 
-
 pairing_status <- function(d) {
   o = data.table(d)
   o[, .id := .I]
