@@ -2,16 +2,21 @@
 % Please edit documentation in R/divorce.R
 \name{pairing_status}
 \alias{pairing_status}
-\title{divorced pairs}
+\title{Divorced pairs}
 \usage{
 pairing_status(d)
 }
+\arguments{
+\item{d}{data.frame containing maleID, femaleID and season}
+}
+\value{
+a data.table similar to d but with two additional columns: male_status and female_status
+}
 \description{
-divorced pairs
+Divorced pairs
 }
 \examples{
 data(divorcees)
-d = data.table(divorcees)
-o = pairing_status(d)
-merge(d, o, by = c('maleID', 'femaleID', 'season'))
+x = pairing_status(divorcees)
+x
 }

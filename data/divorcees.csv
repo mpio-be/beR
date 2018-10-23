@@ -1,16 +1,43 @@
 maleID;femaleID;season
-a;A;1
-a;A;2
-a1;A1;1
-a1;A1;2
-a1;A1;3
-a2;A2;3
-b;B;1
-b;C;2
-c;B;2
-e;F;1
-e;X;2
-g;H;1
-x;H;2
+
+# one breeding attempt (no status)
+m0;f0;3
+
+# re-united pairs
+m1;f1;1
+m1;f1;2
+
+m2;f2;1
+m2;f2;2
+m2;f2;3
+m2;f2;5
+
+# divorces (both male and female)
+m3;f3;1
+m3;f4;2
+m4;f3;2
+
+# widowed female
+m5;f5;1
+m6;f5;2
+
+# widowed male
+m7;f6;1
+m7;f7;2
+
+
+# within season divorce is disregarded
+m8;f8;3
+m8;f9;3 
+m9;f8;4 
+
+# switch between statuses
+m10;f10;3
+m10;f10;4 # reunited
+m10;f11;5 # div male
+m12;f10;5 # div female 
+m12;f13;6 # wid male 
+m13;f10;7 # wid female
+
 
 
