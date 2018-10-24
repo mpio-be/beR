@@ -17,6 +17,7 @@ Divorced pairs
 }
 \examples{
 data(divorcees)
+d = divorcees
 x = pairing_status(divorcees)
 x
 }

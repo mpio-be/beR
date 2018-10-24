@@ -40,4 +40,12 @@ m12;f13;6 # wid male
 m13;f10;7 # wid female
 
 
+# re-united flanked by wid
+m14;f14;7
+m14;f15;8 # wid male
+m14;f15;9 # re-united
+m15;f15;10 # wid female
+
+
+
 

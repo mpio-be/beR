@@ -9,6 +9,7 @@
 #'
 #' @examples
 #' data(divorcees)
+#' d = divorcees
 #' x = pairing_status(divorcees)
 #' x
  
@@ -48,17 +49,13 @@ pairing_status <- function(d) {
 
 
   # all
-    xx = rbindlist( list(rpairs, dwmales, dwfemales), fill = TRUE)
-
-
-
     O = merge(o, rpairs,  by = c('maleID', 'femaleID', 'season'), all.x = TRUE )
 
     O = merge(O, dwmales,  by = c('maleID', 'season'), all.x = TRUE , suffixes = c('', '_temp'))
-    O[!is.na(male_status_temp), male_status := male_status_temp][, male_status_temp := NULL]
+    O[!is.na(male_status_temp) & is.na(male_status) , male_status := male_status_temp][, male_status_temp := NULL]
 
     O = merge(O, dwfemales,  by = c('femaleID', 'season'), all.x = TRUE , suffixes = c('', '_temp'))
-    O[!is.na(female_status_temp), female_status := female_status_temp][, female_status_temp := NULL]
+    O[!is.na(female_status_temp) & is.na(female_status), female_status := female_status_temp][, female_status_temp := NULL]
 
 
     O[, .(maleID, femaleID, season, male_status, female_status)]
