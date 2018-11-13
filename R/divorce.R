@@ -30,7 +30,7 @@ pairing_status <- function(d) {
     # is femaleID_f (former) still alive in season?
     z = merge( x[, .(maleID, femaleID_f, season)], o[, .(femaleID, season)], by.x = c('femaleID_f', 'season'), by.y = c('femaleID', 'season') )
     z[, male_status := 'divorced']
-    dw = merge(x, z[, .(maleID, season, male_status)] , by = c('maleID', 'season') , all.x = TRUE )
+    dw = merge(x, z[, .(maleID, season, male_status)] , by = c('maleID', 'season') , all.x = TRUE,  allow.cartesian = TRUE)
     dw[is.na(male_status), male_status := 'widowed']
     dwmales = dw[, .(maleID, season,male_status)]%>% unique
 
@@ -43,7 +43,7 @@ pairing_status <- function(d) {
     # is maleID_f (former) still alive in season?
     z = merge( x[, .(femaleID, maleID_f, season)], o[, .(maleID, season)], by.x = c('maleID_f', 'season'), by.y = c('maleID', 'season') )
     z[, female_status := 'divorced']
-    dw = merge(x, z[, .(femaleID, season, female_status)] , by = c('femaleID', 'season') , all.x = TRUE )
+    dw = merge(x, z[, .(femaleID, season, female_status)] , by = c('femaleID', 'season') , all.x = TRUE,  allow.cartesian = TRUE )
     dw[is.na(female_status), female_status := 'widowed']
     dwfemales = dw[, .(femaleID, season,female_status)]%>% unique
 
@@ -58,7 +58,9 @@ pairing_status <- function(d) {
     O[!is.na(female_status_temp) & is.na(female_status), female_status := female_status_temp][, female_status_temp := NULL]
 
 
-    O[, .(maleID, femaleID, season, male_status, female_status)]
+    O = O[, .(maleID, femaleID, season, male_status, female_status)]
+    setorder(O, season, maleID, femaleID)
+    O
 
   }
 

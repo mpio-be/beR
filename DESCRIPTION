@@ -1,6 +1,6 @@
 Package: beR
 Title: Behavioural Ecology Tools In R
-Version: 0.0.0.9001
+Version: 0.0.1
 Authors@R: c(person("Mihai", "Valcu", ,"valcu@orn.mpg.de", c("aut", "cre")) )
 Description: Behavioural ecology tools In R
 Depends: 
