@@ -23,7 +23,7 @@ pairing_status <- function(d) {
     rpairs[, ':='  (male_status = 're-united',  female_status = 're-united') ]
 
 
-  #MALES divorces and widows
+  #MALES divorcees and widows
     m = merge(o, o, by = 'maleID', suffixes = c('', '_f'), allow.cartesian = TRUE)
     x = m[season > season_f & femaleID != femaleID_f]
 
@@ -36,7 +36,7 @@ pairing_status <- function(d) {
 
 
 
-  #FEMALES divorces and widows
+  #FEMALES divorcees and widows
     m = merge(o, o, by = 'femaleID', suffixes = c('', '_f'), allow.cartesian = TRUE)
     x = m[season > season_f & maleID != maleID_f]
 
@@ -63,4 +63,3 @@ pairing_status <- function(d) {
     O
 
   }
-
